@@ -39,10 +39,6 @@ code {
   box-sizing: border-box;
 }
 
-.bg-primary {
-  background-color: #0073fa;
-}
-
 .main {
   position: absolute;
   top: 0;
@@ -173,7 +169,7 @@ code {
   height: 2.5rem;
   border: 1px solid transparent;
   border-bottom: 1px solid gray;
-  font-size: 100% ;
+  font-size: 100%;
   padding-left: 0.1rem;
 }
 
@@ -181,7 +177,6 @@ code {
   width: 100%;
   background-color: #2f69a9;
   height: 10vh;
-
 }
 
 .flex-start {
@@ -207,6 +202,7 @@ code {
 }
 
 /* budget splash start */
+
 /* Center-align container */
 .splash-container {
   display: flex;
@@ -253,7 +249,7 @@ code {
 
 /* ending desktop */
 .form-field input:focus {
-  outline:solid 1px transparent;
+  outline: solid 1px transparent;
   border-bottom: solid 3px gray;
 }
 

@@ -19,7 +19,7 @@ class TransactionsController < ApplicationController
 
   def create
     @transaction = current_user.transactions.build(transaction_params)
-    @transaction.created_at ||= Time.current 
+    @transaction.created_at ||= Time.current
 
     if @transaction.save
       redirect_to user_recipes_path(@transaction.user, @payment), notice: 'transaction created successfully.'
@@ -30,7 +30,7 @@ class TransactionsController < ApplicationController
 
   def update
     @transaction = transaction.find(params[:id])
-    if @transaction.update(transaction_params)  
+    if @transaction.update(transaction_params)
       redirect_to user_recipe_path(id: @transaction.id)
     else
       render :edit
@@ -39,7 +39,7 @@ class TransactionsController < ApplicationController
 
   def destroy
     @transaction = transaction.find(params[:id])
-    authorize! :destroy, @transaction  
+    authorize! :destroy, @transaction
     @recipe.destroy
     redirect_to transactions_path, notice: 'transaction was successfully deleted.'
   end
