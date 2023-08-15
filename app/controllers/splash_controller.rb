@@ -6,5 +6,8 @@ class SplashController < ActionController::Base
     def redirect_authenticated_user
       redirect_to transactions_path
     end
+    def index
+      @user = current_user
+    end
   end
   
