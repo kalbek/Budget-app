@@ -26,6 +26,12 @@
         <div class="title">Transactions</div>
       <% elsif current_page?(new_user_password_path) %>
         <div class="title">Reset Password</div>
+      <% elsif current_page?(payments_path) %>
+        <div class="title">Payments</div>
+      <% elsif current_page?(new_payment_path) %>
+        <div class="title">Add Payment</div>
+      <% elsif current_page?(new_transaction_path) %>
+        <div class="title">New Transaction</div>
       <% else %>
         <!-- Default content if none of the conditions match -->
       <% end %>
