@@ -13,7 +13,7 @@ class TransactionsController < ApplicationController
   end
 
   def new
-    @transactions = current_user.entities.build
+    # @transactions = current_user.payments.build
     @current_user = current_user
   end
 

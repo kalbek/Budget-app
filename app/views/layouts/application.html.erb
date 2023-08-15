@@ -1,45 +1,86 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Budget app</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Budget app</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+</head>
 
-  <body>
-    <div class="header-label">
-       <div class="flex-spaced mt-50p">
-       <div class="mobile-menu-icon">
-        <%= image_tag "menu.png", alt: "Search icon" %>
-       </div>
-       <% if current_page?(new_user_registration_path) %>
-       <div class="title">Register</div>
-     <% elsif current_page?(user_session_path) %>
-       <div class="title">Login</div>
-     <% elsif current_page?(groups_path) %>
-       <div class="title">Transactions</div>
-     <% elsif current_page?(new_user_password_path) %>
-       <div class="title">Reset Password</div>
-     <% else %>
-       <!-- Default content if none of the conditions match -->
-     <% end %>
-       <div>
-       <%= image_tag "search.png", alt: "Search icon" %>
-     </div>
-     
-       </div>
+<body>
+  <div class="header-label">
+    <div class="flex-spaced mt-50p">
+      <div class="mobile-menu-icon">
+        <button id="sidebarToggle">
+          <%= image_tag "menu.png", alt: "Menu icon" %>
+        </button>
+      </div>
+      <% if current_page?(new_user_registration_path) %>
+        <div class="title">Register</div>
+      <% elsif current_page?(user_session_path) %>
+        <div class="title">Login</div>
+      <% elsif current_page?(transactions_path) %>
+        <div class="title">Transactions</div>
+      <% elsif current_page?(new_user_password_path) %>
+        <div class="title">Reset Password</div>
+      <% else %>
+        <!-- Default content if none of the conditions match -->
+      <% end %>
+      <div>
+        <%= image_tag "search.png", alt: "Search icon" %>
+      </div>
     </div>
+  </div>
 
-    <main>
-      <%= yield %>
-    </main>
+  <!-- Sidebar menu -->
+  <div id="sidebar" class="sidebar">
+  <div class="current_user flex-column-centered mt-3 mb-3">
+    <%= current_user.name %>
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item <%= 'active' if current_page?(transactions_path) %>">
+      <%= link_to transactions_path, class: 'list-group-items' do %>
+        <div class="list-group-item-content">Transactions</div>
+      <% end %>
+    </li>
+    <li class="list-group-item <%= 'active' if current_page?(transactions_path) %>">
+      <%= link_to payments_path, class: 'list-group-items' do %>
+        <div class="list-group-item-content">Payments</div>
+      <% end %>
+    </li>
+    <li class="list-group-item <%= 'active' if current_page?(transactions_path) %>">
+      <%= link_to new_payment_path, class: 'list-group-items' do %>
+        <div class="list-group-item-content">New Payments</div>
+      <% end %>
+    </li>
+    <li class="list-group-item <%= 'active' if current_page?(transactions_path) %>">
+      <%= link_to new_transaction_path, class: 'list-group-items' do %>
+        <div class="list-group-item-content">New Transactions</div>
+      <% end %>
+    </li>
+  </ul>
+</div>
 
-    <footer>
-      <!-- Footer content here -->
-    </footer>
-  </body>
+  <main>
+    <%= yield %>
+  </main>
+
+  <footer>
+    <!-- Footer content here -->
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const sidebarToggle = document.getElementById("sidebarToggle");
+      const sidebar = document.getElementById("sidebar");
+
+      sidebarToggle.addEventListener("click", function() {
+        sidebar.classList.toggle("active");
+      });
+    });
+  </script>
+</body>
 </html>

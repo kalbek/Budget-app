@@ -17,7 +17,13 @@ Rails.application.routes.draw do
   # User recipes route
   get 'payments', to: 'payments#index', as: :payments
 
+  # new payments path
+  get 'new_payments', to: 'payments#new', as: :new_payment
+
   # Specific transaction route
   get 'transactions/:id', to: 'transactions#show', as: :transaction
+
+  # Specific transaction route
+  get 'new_transactions', to: 'transactions#new', as: :new_transaction
 
 end

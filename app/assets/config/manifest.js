@@ -3,3 +3,4 @@
 //= link_tree ../../javascript .js
 //= link_tree ../../../vendor/javascript .js
 //= link public-checkbox.js
+//= link toggle-icon.js

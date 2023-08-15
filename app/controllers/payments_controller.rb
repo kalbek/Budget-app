@@ -11,7 +11,7 @@ class PaymentsController < ApplicationController
   end
 
   def new
-    @payment = current_user.entities.build
+    # @payment = current_user.payments.build
     @current_user = current_user
   end
 
