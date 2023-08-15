@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Budget app</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <div class="header-label">
+       <div class="flex-spaced mt-50p">
+       <div class="mobile-menu-icon">
+        <%= image_tag "menu.png", alt: "Search icon" %>
+       </div>
+       <% if current_page?(new_user_registration_path) %>
+       <div class="title">Register</div>
+     <% elsif current_page?(user_session_path) %>
+       <div class="title">Login</div>
+     <% elsif current_page?(groups_path) %>
+       <div class="title">Transactions</div>
+     <% elsif current_page?(new_user_password_path) %>
+       <div class="title">Reset Password</div>
+     <% else %>
+       <!-- Default content if none of the conditions match -->
+     <% end %>
+       <div>
+       <%= image_tag "search.png", alt: "Search icon" %>
+     </div>
+     
+       </div>
+    </div>
+
+    <main>
+      <%= yield %>
+    </main>
+
+    <footer>
+      <!-- Footer content here -->
+    </footer>
+  </body>
+</html>
