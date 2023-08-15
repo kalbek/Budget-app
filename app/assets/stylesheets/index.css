@@ -597,3 +597,93 @@ code {
   font-weight: bold;
   padding: 10px;
 }
+
+.transaction-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.transaction-details {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.transaction-name {
+  font-weight: bold;
+}
+
+.transaction-amount {
+  color: #007bff;
+}
+
+.transaction-created-at {
+  color: #888;
+}
+
+/* Transaction list styling */
+.transaction-list {
+  display: flex;
+  height: 70vh;
+  overflow-y: scroll;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.transaction-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  background-color: #f0f2f1;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  min-width: 35vw;
+  margin-bottom: 10px;
+}
+
+.flex-spaced {
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.transaction-details {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.transaction-name {
+  font-weight: bold;
+}
+
+.transaction-amount {
+  color: #007bff;
+}
+
+.transaction-created-at {
+  color: #888;
+}
+
+.add-items-button {
+  position: fixed;
+  margin-top: 20px;
+  bottom: 5%;
+  padding: 10px 5%;
+  min-width: fit-content;
+  background-color: #60b524;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  font-size: 20px;
+}
+
+.add-items-button:hover {
+  background-color: #0056b3;
+}

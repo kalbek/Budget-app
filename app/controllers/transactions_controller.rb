@@ -3,7 +3,7 @@ class TransactionsController < ApplicationController
 
   def index
     @user = current_user
-    @transactions = PaymentTransaction.all
+    @transactions = PaymentTransaction.order(created_at: :desc)
   end
 
   def show
