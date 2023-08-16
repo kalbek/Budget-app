@@ -3,7 +3,7 @@ class ExpenseCategoriesController < ApplicationController
 
   def index
     @user = current_user
-    @transactions = PaymentTransaction.order(created_at: :desc)
+    @transactions = Expense.order(created_at: :desc)
   end
 
   def show

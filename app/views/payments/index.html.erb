@@ -12,6 +12,27 @@
   </head>
 
   <body>
-    <div>Payments Index</div> 
+ <br>
+ 
+
+ <% sum = 0 %>
+ <% @payments.each do |payment| %>
+    <% if (payment.transaction_id == @expense.id) %>
+    <div class="flex-column">
+    <li>
+        <% sum += payment.amount %>
+        <%= payment.name %>
+        </li>
+        </div>  
+    <% end %>
+  <% end %>
+  Total $<%= sum %>
   </body>
+
+
+
+  <div class="flex-column-centered">
+     
+  <%= link_to 'Add New Payment', new_payment_path, class: 'add-items-button' %>
+  </div>
 </html>

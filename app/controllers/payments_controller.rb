@@ -3,12 +3,17 @@ class PaymentsController < ApplicationController
 
   def index
     @user = current_user
+    @expense = Expense.find(params[:id])
+    @payments = Payment.order(created_at: :desc)
   end
 
   def show
-    @user = User.find(params[:user_id])
-    render json: @user.entities.find(params[:id])
+    @user = current_user
+    @expenses = Expense.order(created_at: :desc)
+    @expense = Expense.find(params[:id])
+    @payments = @expense.payments
   end
+  
 
   def new
     # @payment = current_user.payments.build
@@ -35,6 +40,6 @@ class PaymentsController < ApplicationController
   private
 
   def payment_params
-    params.require(:payment).permit(:name, :amount)
+    params.require(:payment).permit(:name, :amount, :payment_transaction_id)
   end
 end
