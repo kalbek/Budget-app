@@ -7,23 +7,24 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  # Defines the root path route ("/")
-  # root to: 'groups#index'
+  # The root path will be spash screen
   root to: 'splash#index'
 
-  # categories route
-  get 'transactions', to: 'transactions#index', as: :transactions
+  # expenses route
+  get 'expenses', to: 'expenses#index', as: :expenses
+  
+  # Specific expense route
+  get 'expenses/:id', to: 'expenses#show', as: :expense
 
-  # User recipes route
-  get 'payments', to: 'payments#index', as: :payments
+  # Payments under specific expense
+  get 'expenses/:id/payments', to: 'payments#index', as: :payments
+
+  # Specific payment path
+  get 'expenses/:id/payments/:id', to: 'payments#show', as: :payment
 
   # new payments path
   get 'new_payments', to: 'payments#new', as: :new_payment
 
-  # Specific transaction route
-  get 'transactions/:id', to: 'transactions#show', as: :transaction
-
-  # Specific transaction route
-  get 'new_transactions', to: 'transactions#new', as: :new_transaction
-
+  # Specific expense route
+  get 'new_expenses', to: 'expenses#new', as: :new_expense
 end

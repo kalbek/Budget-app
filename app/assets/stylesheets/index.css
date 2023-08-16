@@ -587,10 +587,6 @@ code {
   margin-bottom: 3rem;
 }
 
-.list-group-item:last-child {
-  border-bottom: none; /* Remove border for the last item */
-}
-
 .current_user {
   text-align: center;
   font-size: 1.2rem;
@@ -613,6 +609,8 @@ code {
 
 .transaction-name {
   font-weight: bold;
+  text-decoration: none;
+  color: inherit;
 }
 
 .transaction-amount {
@@ -654,10 +652,6 @@ code {
 .transaction-details {
   flex-grow: 1;
   margin-right: 10px;
-}
-
-.transaction-name {
-  font-weight: bold;
 }
 
 .transaction-amount {

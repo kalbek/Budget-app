@@ -1,18 +1,22 @@
 
-
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Show Transactions app</title>
+    <title>Expense Transactions app</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    </head>
-    
-    <body>
-        <div>Show Transactions</div>
-  </body>
+  </head>
+
+  <body>
+  New Expenses
+  <div class="flex-column-centered">
+ 
+    <%= link_to 'Add ', new_expense_path, class: 'add-items-button' %>
+    </div>
+    </body>
+
 </html>

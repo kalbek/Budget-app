@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_14_094616) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_16_112746) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,6 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_14_094616) do
     t.string "icon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.index ["user_id"], name: "index_payment_transactions_on_user_id"
   end
 
@@ -28,6 +29,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_14_094616) do
     t.integer "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "transaction_id"
     t.index ["author_id"], name: "index_payments_on_author_id"
   end
 
@@ -43,5 +45,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_14_094616) do
   end
 
   add_foreign_key "payment_transactions", "users"
+  add_foreign_key "payments", "payment_transactions", column: "transaction_id"
   add_foreign_key "payments", "users", column: "author_id"
 end

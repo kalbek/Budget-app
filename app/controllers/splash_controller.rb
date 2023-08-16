@@ -5,7 +5,7 @@ class SplashController < ActionController::Base
   end
 
   def redirect_authenticated_user
-    redirect_to transactions_path
+    redirect_to expenses_path
   end
 
   def index

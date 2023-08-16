@@ -1,19 +1,23 @@
-class TransactionsController < ApplicationController
+class ExpensesController < ApplicationController
   before_action :authenticate_user!
 
   def index
     @user = current_user
-    @transactions = PaymentTransaction.order(created_at: :desc)
+    @expenses = PaymentTransaction.order(created_at: :desc)
+    @payments = Payment.all
+    
   end
-
+  
   def show
     @user = current_user
-    @transactions = transaction.includes(:user).find(params[:id])
-    @payment = Payment.all
+    @expenses = PaymentTransaction.order(created_at: :desc)
+    @expense = PaymentTransaction.find(params[:id])
+    @payments = @expense.payments
   end
-
+  
   def new
-    # @transactions = current_user.payments.build
+    # @expenses = current_user.payments.build
+    @expenses = PaymentTransaction.order(created_at: :desc)
     @current_user = current_user
   end
 
@@ -22,7 +26,7 @@ class TransactionsController < ApplicationController
     @transaction.created_at ||= Time.current
 
     if @transaction.save
-      redirect_to user_recipes_path(@transaction.user, @payment), notice: 'transaction created successfully.'
+      redirect_to user_recipes_path(@transaction.user, @payments), notice: 'transaction created successfully.'
     else
       flash.now[:alert] = @transaction.errors.full_messages.join(', ')
     end
