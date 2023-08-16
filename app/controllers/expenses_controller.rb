@@ -5,16 +5,15 @@ class ExpensesController < ApplicationController
     @user = current_user
     @expenses = PaymentTransaction.order(created_at: :desc)
     @payments = Payment.all
-    
   end
-  
+
   def show
     @user = current_user
     @expenses = PaymentTransaction.order(created_at: :desc)
     @expense = PaymentTransaction.find(params[:id])
     @payments = @expense.payments
   end
-  
+
   def new
     # @expenses = current_user.payments.build
     @expenses = PaymentTransaction.order(created_at: :desc)
