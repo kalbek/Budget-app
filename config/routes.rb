@@ -27,6 +27,12 @@ Rails.application.routes.draw do
 
   # Specific expense route
   get 'new_expenses', to: 'expenses#new', as: :new_expense
+
+  resources :expenses do
+    resources :payments, only: [:new, :create]
+  end
+ 
+  
  
   
 end

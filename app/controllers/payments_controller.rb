@@ -15,17 +15,22 @@ class PaymentsController < ApplicationController
   end
 
   def new
-    # @payment = current_user.payments.build
-    @current_user = current_user
+    @expense = Expense.find(params[:expense_id])
+    @payment = Payment.new
   end
 
   def create
-    @payment = current_user.entities.build(payment_params)
-
+    @expense = Expense.find(params[:expense_id]) # Find the associated expense
+    @payment = Payment.new(payment_params)
+    @payment.transaction_id = @expense.id # Set the transaction_id to the expense id
+    
+    @payment.inspect
+    
     if @payment.save
-      redirect_to entities_path(@payment.user, @payment), notice: 'payment created successfully.'
+      redirect_to expense_path(@expense), notice: 'Payment created successfully.'
     else
       flash.now[:alert] = @payment.errors.full_messages.join(', ')
+      render :new
     end
   end
 
@@ -38,6 +43,11 @@ class PaymentsController < ApplicationController
 
   private
 
+  def payment_params
+    params.require(:payment).permit(:name, :amount, :payment_transaction_id)
+  end
+
+  
   def payment_params
     params.require(:payment).permit(:name, :amount, :payment_transaction_id)
   end

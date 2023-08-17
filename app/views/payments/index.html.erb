@@ -40,7 +40,7 @@
   </div>  
   </body>
   <div class="flex-column-centered">
-  <%= link_to 'Add New Payment', new_payment_path, class: 'add-items-button' %>
+  <%= link_to 'Add New Payment', new_payment_path(expense_id: @expense.id), class: 'add-items-button' %>
   </div>
   </div>
 </html>

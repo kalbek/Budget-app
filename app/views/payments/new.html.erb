@@ -13,34 +13,25 @@
     </head>
     
     <body>
-
+      <%= form_with(model: @payment, url: expense_payments_path(@expense)) do |form| %>
     <div class="flex-centered bg-primary ctr-primary ">
     <div class=" flex-column rad-10 w-30">
-    
-     
-      
       <div class="form-field flex-column-centered mt-m10">
-    
         <div class="field flex-start">
-          <input type="text" placeholder="Enter payment name">
-        </div>
-    
-        <div class="name-field flex-start">
-          <input type="text" placeholder="Enter payment amount">
-        </div>
-    
-     
+          <%= form.text_field :name, class: "add-food-filds", placeholder: "Enter name" %>
+          </div>
+          <div class="name-field flex-start">
+          <%= form.text_field :amount, class: "add-food-filds", placeholder: "Enter amount" %>
+          </div>
         <div class="   box">
           <div class="inner-border">
-          Add payment 
+            <button type="submit">Submit</button>
           </div>
         </div>
-     
-      
- 
       </div>
       </div>
       </div>
+      <% end %>
   </body>
 </html>
 
