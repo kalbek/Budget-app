@@ -612,6 +612,40 @@ code {
   outline: 1px solid red;
 }
 
+.box {
+  padding: 2rem 3rem;
+  max-width: 250px; /* Set a maximum width */
+  width: 140%; /* Take up full width within its container */
+  cursor: pointer;
+  background-color: #60b524;
+  font-size: 120%;
+  position: relative;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner-border {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 2px solid white;
+}
+
+.box:hover .inner-border,
+.inner-border * {
+  color: #0069da;
+  border-color: #0069da;
+}
+
 .total {
   position: fixed;
   top: 10%;
