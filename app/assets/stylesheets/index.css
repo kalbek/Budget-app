@@ -174,7 +174,10 @@ code {
 }
 
 .header-label {
-  width: 100%;
+  top: 0;
+  z-index: 100;
+  width: 100vw;
+  position: fixed;
   background-color: #2f69a9;
   height: 10vh;
 }
@@ -594,27 +597,84 @@ code {
   padding: 10px;
 }
 
-.transaction-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-}
-
-.transaction-details {
-  flex-grow: 1;
-  margin-right: 10px;
-}
-
 .transaction-name {
   font-weight: bold;
   text-decoration: none;
   color: inherit;
 }
 
-.transaction-amount {
+.payments {
+  width: 100vw;
+  background-color: #f0f2f1;
+}
+
+.bordered-red {
+  outline: 1px solid red;
+}
+
+.total {
+  position: fixed;
+  top: 10%;
+  width: 100vw;
+  background-color: #007bff;
+  padding: 1rem;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.payment-details .detail {
+  width: 80vw; /* Set the width to 100% of its parent's width */
+  height: 10vh;
+
+  /* padding: 10% 2%; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #fff;
+}
+
+.payment-date {
+  font-size: 110%;
+  padding-top: 10%;
+  padding-right: 2%;
+  width: 100%;
+}
+
+.detail .payment-name {
+  font-size: 160%;
+  color: #444;
+  overflow: hidden;
+  padding: 1%;
+}
+
+.payment-details .detail:first-child {
+  margin-top: 15vh;
+}
+
+.flex-column-start {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.payment-amount {
+  margin-left: 8%;
+  margin-top: 4%;
+  font-size: 120%;
   color: #007bff;
+}
+
+/* Hide the scrollbar */
+.hidden-scroll {
+  overflow: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer and Edge */
+}
+
+/* Hide the scrollbar for Webkit browsers */
+.hidden-scroll::-webkit-scrollbar {
+  display: none;
 }
 
 .transaction-created-at {
@@ -658,16 +718,11 @@ code {
   color: #007bff;
 }
 
-.transaction-created-at {
-  color: #888;
-}
-
 .add-items-button {
   position: fixed;
   margin-top: 20px;
   bottom: 5%;
   padding: 10px 5%;
-  min-width: fit-content;
   background-color: #60b524;
   color: white;
   border: none;

@@ -6,33 +6,41 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
- <br>
- 
-
- <% sum = 0 %>
- <% @payments.each do |payment| %>
+  <body class="hidden-scroll">
+  <% sum = 0 %>
+  <div class="payments flex-column-centered hidden-scroll ">
+  <div class="flex-column-centered payment-details hidden-scroll relative">
+  
+  <% @payments.each do |payment| %>
     <% if (payment.transaction_id == @expense.id) %>
-    <div class="flex-column">
-    <li>
-        <% sum += payment.amount %>
-        <%= payment.name %>
-        </li>
-        </div>  
+    <% sum += payment.amount %>
+        <div class="detail">
+            <p class="payment-name flex-column-start">
+              <%= payment.name %>
+            </p>
+          
+          <div class="flex-column-start gap-10p relative">
+            <p class="payment-date  flex-start">
+              <%= payment.created_at.strftime('%e %B %Y at %l.%M %p') %>
+            </p>
+            <p class="payment-amount  flex-start">
+             Price: $<%= payment.amount %>
+            </p>
+          </div>
+        </div>
     <% end %>
   <% end %>
-  Total $<%= sum %>
+  <div class="total absolute">
+    Total $<%= sum %>
+  </div>
+  </div>  
   </body>
-
-
-
   <div class="flex-column-centered">
-     
   <%= link_to 'Add New Payment', new_payment_path, class: 'add-items-button' %>
+  </div>
   </div>
 </html>

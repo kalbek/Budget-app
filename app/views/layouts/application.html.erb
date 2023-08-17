@@ -28,10 +28,10 @@
         <div class="title">Expense Categories</div>
       <% elsif current_page?(new_user_password_path) %>
         <div class="title">Reset Password</div>
-      <% elsif current_page?(payments_path) %>
-        <div class="title">Payments</div>
+      <% elsif current_page?(payments_path(1)) %>
+        <div class="title">Payment Details</div>
       <% elsif current_page?(new_payment_path) %>
-        <div class="title">Add Payment</div>
+        <div class="title">Add New Payment</div>
       <% elsif current_page?(new_expense_path) %>
         <div class="title">New Expense Category</div>
       <% else %>

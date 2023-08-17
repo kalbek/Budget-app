@@ -13,7 +13,6 @@ class PaymentsController < ApplicationController
     @expense = Expense.find(params[:id])
     @payments = @expense.payments
   end
-  
 
   def new
     # @payment = current_user.payments.build
