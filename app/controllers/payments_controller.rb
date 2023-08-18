@@ -23,13 +23,17 @@ class PaymentsController < ApplicationController
     @expense = Expense.find(params[:expense_id]) # Find the associated expense
     @payment = Payment.new(payment_params)
     @payment.transaction_id = @expense.id # Set the transaction_id to the expense id
-    
-    @payment.inspect
-    
+    @payment.created_at = Time.now
+    @payment.updated_at = Time.now
+    @payment.author_id = current_user.id
+
+
     if @payment.save
-      redirect_to expense_path(@expense), notice: 'Payment created successfully.'
+      redirect_to payments_path(id: @expense.id), notice: 'Payment created successfully.'
     else
       flash.now[:alert] = @payment.errors.full_messages.join(', ')
+      puts @payment.errors.full_messages.join(', ')
+
       render :new
     end
   end
@@ -43,11 +47,6 @@ class PaymentsController < ApplicationController
 
   private
 
-  def payment_params
-    params.require(:payment).permit(:name, :amount, :payment_transaction_id)
-  end
-
-  
   def payment_params
     params.require(:payment).permit(:name, :amount, :payment_transaction_id)
   end

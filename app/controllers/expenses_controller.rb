@@ -11,7 +11,6 @@ class ExpensesController < ApplicationController
     @user = current_user
     @expenses = Expense.order(created_at: :desc)
     @expense = Expense.find(params[:id])
-    @payments = @expense.payments
   end
 
   def new
