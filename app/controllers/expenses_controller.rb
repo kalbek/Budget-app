@@ -1,6 +1,6 @@
 class ExpensesController < ApplicationController
   before_action :authenticate_user!
-
+  ICONS = %w[Charity Entertainment Grocery Fitness Recreational Travel].freeze
   def index
     @user = current_user
     @expenses = Expense.order(created_at: :desc)
@@ -20,22 +20,24 @@ class ExpensesController < ApplicationController
   end
 
   def create
-    @transaction = current_user.transactions.build(transaction_params)
-    @transaction.created_at ||= Time.current
+    puts "expenssssssssssssssssssssssssss: #{expense_params}"
 
-    if @transaction.save
-      redirect_to user_recipes_path(@transaction.user, @payments), notice: 'transaction created successfully.'
-    else
-      flash.now[:alert] = @transaction.errors.full_messages.join(', ')
-    end
-  end
+    @expense = Expense.new(expense_params)
+    puts "expenssssssssssssssssssssssssss: #{@expense}"
+    @expense.user_id = current_user.id
+    @expense.created_at = Time.current
+    @expense.updated_at = Time.current
+    puts "expenssssssssssssssssssssssssss:name: #{@expense.name}"
+    puts "expenssssssssssssssssssssssssss:icon: #{@expense.icon}"
+    puts "ppppppppppppppppppppppppppppp: #{@expense.errors.full_messages.join(', ')}"
+    puts "expense paramsssisiiiiiiiiii: #{expense_params.inspect}"
 
-  def update
-    @transaction = transaction.find(params[:id])
-    if @transaction.update(transaction_params)
-      redirect_to user_recipe_path(id: @transaction.id)
+    if @expense.save
+      redirect_to expenses_path, notice: 'transaction created successfully.'
     else
-      render :edit
+      binding.pry
+      flash.now[:alert] = @expense.errors.full_messages.join(', ')
+      render :new
     end
   end
 
@@ -48,7 +50,8 @@ class ExpensesController < ApplicationController
 
   private
 
-  def transaction_params
-    params.require(:recipe).permit(:name, :icon, :created_at)
+  def expense_params
+    params.require(:expense).permit(:name, :icon)
   end
+  
 end

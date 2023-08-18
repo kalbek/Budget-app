@@ -25,6 +25,8 @@ gem 'rswag-api'
 
 gem 'rswag-ui'
 
+gem 'pry'
+
 gem 'omniauth', '~> 1.9.1'
 
 gem 'omniauth-github', '~> 1.4.0'
