@@ -11,10 +11,17 @@
   </head>
 
   <body class="hidden-scroll">
+    <%= link_to expenses_path, class: 'bk' do %>
+      <%= image_tag("back-arrow.png", alt: "Back") %>
+    <% end %>
   <% sum = 0 %>
   <div class="payments flex-column-centered hidden-scroll ">
   <div class="flex-column-centered payment-details hidden-scroll relative">
-  
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
   <% @payments.each do |payment| %>
     <% if (payment.transaction_id == @expense.id) %>
     <% sum += payment.amount %>
@@ -22,13 +29,13 @@
             <p class="payment-name flex-column-start">
               <%= payment.name %>
             </p>
-          
           <div class="flex-column-start gap-10p relative">
             <p class="payment-date  flex-start">
-              <%= payment.created_at.strftime('%e %B %Y at %l.%M %p') %>
+              <p><%= payment.created_at.strftime('%e %B %Y ') %></p>
+              <p><%= payment.created_at.strftime('at %l:%M %p') %></p>
             </p>
             <p class="payment-amount  flex-start">
-             Price: $<%= payment.amount %>
+                 $<%= payment.amount %>
             </p>
           </div>
         </div>
@@ -39,8 +46,10 @@
   </div>
   </div>  
   </body>
-  <div class="flex-column-centered">
-  <%= link_to 'Add New Payment', new_payment_path(expense_id: @expense.id), class: 'add-items-button' %>
+  <div class="flex-column-centered fixed bottom-centered  ">
+  <div class="   box ">
+  <%= link_to 'Add Payment', new_payment_path(expense_id: @expense.id), class: 'inner-border no-decoration new-payment-btn' %>
+        </div>
   </div>
   </div>
 </html>
