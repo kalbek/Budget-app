@@ -12,8 +12,8 @@
   </head>
 
   <body>
-  <div class="flex-column-centered">
-    <div class="transaction-list">
+  <div class="flex-column-centered expenses ">
+    <div class="transaction-list hidden-scroll">
     
 
     <% @expenses.each do |expense| %>
@@ -26,8 +26,6 @@
           </div>
         </div>
         <div class="transaction-created-at">
-         
-        
           <% sum = 0 %>
           <% count = 0 %>
            <% @payments.select { |payment| payment.transaction_id == expense.id }.each do |payment| %>
@@ -41,7 +39,9 @@
     <% end %>
     <% end %>
   </div>
-  <%= link_to 'Add Expense Category', new_expense_path, class: 'add-items-button' %>
+  <div class="box">
+      <%= link_to 'Add Expense Category', new_expense_path, class: 'inner-border no-decoration new-payment-btn' %>
+  </div>
   </div>
   </body>
 
