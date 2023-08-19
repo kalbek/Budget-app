@@ -27,7 +27,6 @@ class PaymentsController < ApplicationController
     @payment.updated_at = Time.now
     @payment.author_id = current_user.id
 
-
     if @payment.save
       redirect_to payments_path(id: @expense.id), notice: 'Payment created successfully.'
     else

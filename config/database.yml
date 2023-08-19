@@ -90,5 +90,5 @@ test:
 production:
   <<: *default
   database: budgetdb_wa95
-  username: blog_app
-  password: <%= ENV["BLOG_APP_DATABASE_PASSWORD"] %>
+  username: budgetdb_wa95_user
+  password: <%= ENV["DATABASE_PASSWORD"] %>
