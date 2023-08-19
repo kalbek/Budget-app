@@ -12,6 +12,9 @@
   </head>
 
   <body>
+  <%= link_to expenses_path, class: 'bk' do %>
+    <%= image_tag("back-arrow.png", alt: "Back") %>
+  <% end %>
     <%= form_with(model: @expense, url: expenses_path) do |form| %>
       <div class="flex-centered bg-primary ctr-primary  flex-column-centered">
         <div class="flex-column rad-10 w-30">
@@ -21,7 +24,7 @@
               <% if @name_error.present? %>
                 <p class="error-message"><%= @name_error %></p>
               <% end %>
-            
+              
               <%= expense_form.select :icon, ExpensesController::ICONS, prompt: "Choose an icon for your expense category.", class: "select-field #{'field-with-error' if @icon_error.present?}", id: "select-field" %>
               <% if @icon_error.present? %>
                 <p class="error-message"><%= @icon_error %></p>
