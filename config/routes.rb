@@ -2,9 +2,8 @@ Rails.application.routes.draw do
   mount Rswag::Ui::Engine => '/api-docs'
   mount Rswag::Api::Engine => '/api-docs'
 
-  resources :groups, only: [:new, :create, :destroy]
-  resources :entities, only: [:new, :create, :destroy]
-
+  resources :users, only: [:index, :show]
+  
   devise_for :users
 
   # The root path will be spash screen
