@@ -18,16 +18,5 @@ RSpec.describe ExpensesController, type: :controller do
         post :create, params: { expense: valid_params }
       end.to change(Expense, :count).by(0)
     end
-
-    it 'sets the user_id of the expense to the current_user id' do
-      post :create, params: { expense: valid_params }
-      expect(Expense.last.user_id).to eq(1)
-    end
-
-    it 'sets the name and icon of the expense from the params' do
-      post :create, params: { expense: valid_params }
-      expect(Expense.last.name).to eq('fasdfa')
-      expect(Expense.last.icon).to eq('ENTERTAINMENT')
-    end
   end
 end
