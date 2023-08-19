@@ -13,8 +13,8 @@ class ExpensesControllerTest < ActionController::TestCase
 
     assert_response :success
     assert_template :index
-    assert_not_nil assigns(:last_expense)
     assert_not_nil assigns(:user)
+    assert_not_nil assigns(:last_expense)
     assert_not_nil assigns(:expenses)
     assert_not_nil assigns(:payments)
   end

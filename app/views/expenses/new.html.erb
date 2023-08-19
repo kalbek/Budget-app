@@ -15,6 +15,7 @@
   <%= link_to expenses_path, class: 'bk' do %>
     <%= image_tag("back-arrow.png", alt: "Back") %>
   <% end %>
+  
     <%= form_with(model: @expense, url: expenses_path) do |form| %>
       <div class="flex-centered bg-primary ctr-primary  flex-column-centered">
         <div class="flex-column rad-10 w-30">
