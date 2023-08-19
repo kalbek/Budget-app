@@ -4,6 +4,5 @@ FactoryBot.define do
     name { 'Expense Name' }
     icon { 'GROCERY.png' }
     association :user # Creates an associated user
-
   end
 end

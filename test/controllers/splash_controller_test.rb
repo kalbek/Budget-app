@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class SplashControllerTest < ActionController::TestCase
-  include Devise::Test::ControllerHelpers  # For testing with Devise authentication
+  include Devise::Test::ControllerHelpers # For testing with Devise authentication
 
   test 'should redirect authenticated user to expenses_path' do
     user = FactoryBot.create(:user)
@@ -17,6 +17,6 @@ class SplashControllerTest < ActionController::TestCase
 
     assert_response :success
     assert_template :index
-    assert_nil assigns(:user)  # Ensure that @user is not assigned for non-authenticated users
+    assert_nil assigns(:user) # Ensure that @user is not assigned for non-authenticated users
   end
 end

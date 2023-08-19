@@ -1,11 +1,11 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
-  include Devise::Test::ControllerHelpers  # For testing with Devise authentication
+  include Devise::Test::ControllerHelpers # For testing with Devise authentication
 
   def setup
     @user = FactoryBot.create(:user)
-    sign_in @user  # Sign in the user using Devise authentication
+    sign_in @user # Sign in the user using Devise authentication
   end
 
   test 'should get index' do

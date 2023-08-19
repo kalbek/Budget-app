@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class ExpensesControllerTest < ActionController::TestCase
-  include Devise::Test::ControllerHelpers  # For testing with Devise authentication
+  include Devise::Test::ControllerHelpers # For testing with Devise authentication
 
   def setup
     @user = FactoryBot.create(:user)

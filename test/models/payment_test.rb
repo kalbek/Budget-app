@@ -4,7 +4,7 @@ class PaymentTest < ActiveSupport::TestCase
   def setup
     @user = FactoryBot.create(:user)
     @expense = FactoryBot.create(:expense, user: @user)
-    @payment = FactoryBot.create(:payment, author: @user, expense: @expense)  # Fix the author association here
+    @payment = FactoryBot.create(:payment, author: @user, expense: @expense) # Fix the author association here
   end
 
   test 'should be valid' do
