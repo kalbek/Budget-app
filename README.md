@@ -28,6 +28,7 @@ This repository contains ruby files with ruby code.
 **Expense Tracking App** The Recipe app keeps track of all your expenses. It will allow you to add an expense categories, and under each of these catagories it helps you keep track of how much you spent, what you spent on and the total amount of each expense categories.  Also, since allows you to choose a nice looking icon for your expense category.
 
 ## 🛠 [Live Preview](https://budget-app-f5vg.onrender.com/)
+## 🛠 [Link to video walkthrough](https://www.loom.com/share/397c7ccee387418c968ff7ba402031cc?sid=b05950e0-30ea-485f-b63c-82e47aab6a24)
 
 ## 🛠 Built With <a name="built-with">Ruby, Ruby on Rails</a>
 
