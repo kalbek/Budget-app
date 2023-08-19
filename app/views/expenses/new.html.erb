@@ -22,7 +22,7 @@
                 <p class="error-message"><%= @name_error %></p>
               <% end %>
             
-              <%= expense_form.select :icon, ExpensesController::ICONS, prompt: "Choose an Icon", class: "select-field #{'field-with-error' if @icon_error.present?}", id: "select-field" %>
+              <%= expense_form.select :icon, ExpensesController::ICONS, prompt: "Choose an icon for your expense category.", class: "select-field #{'field-with-error' if @icon_error.present?}", id: "select-field" %>
               <% if @icon_error.present? %>
                 <p class="error-message"><%= @icon_error %></p>
               <% end %>
