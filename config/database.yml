@@ -63,7 +63,7 @@ test:
    adapter: postgresql
    database: budget
    username: postgres
-   password: nonstop
+   password: 123
    host: localhost
    port: 5432
 
