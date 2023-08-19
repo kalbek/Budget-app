@@ -781,6 +781,10 @@ code {
   margin-top: 5px;
 }
 
+.fit-content {
+  width: 100vw;
+}
+
 /* Transaction list styling */
 .transaction-list {
   display: flex;

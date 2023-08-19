@@ -61,11 +61,13 @@
       <div class="list-group-item-content">New Expense</div>
     <% end %>
     </li>
+    <% if Expense.last %>
     <li class="list-group-item <%= 'active' if current_page?(new_payment_path) %>">
       <%= link_to new_payment_path(expense_id: Expense.last.id), class: 'list-group-items' do %>
         <div class="list-group-item-content">New Payments</div>
       <% end %>
     </li>
+  <% end %>
     <li class="list-group-item <%= 'active' if current_page?(payments_path(1)) %>">
       <%= link_to payments_path(1), class: 'list-group-items' do %>
         <div class="list-group-item-content">Payments</div>
