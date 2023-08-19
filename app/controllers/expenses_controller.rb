@@ -43,13 +43,6 @@ class ExpensesController < ApplicationController
     end
   end
 
-  def destroy
-    @transaction = transaction.find(params[:id])
-    authorize! :destroy, @transaction
-    @recipe.destroy
-    redirect_to transactions_path, notice: 'transaction was successfully deleted.'
-  end
-
   private
 
   def expense_params

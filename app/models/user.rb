@@ -9,6 +9,6 @@ class User < ApplicationRecord
          timeout_in: 30.minutes # Period of inactivity before a user is automatically logged out (default is nil)
 
   validates :name, presence: true
-  has_many :entities, foreign_key: :user_id
-  has_many :groups, foreign_key: :user_id
+  has_many :payments, foreign_key: :author_id
+  has_many :expenses, foreign_key: :transaction_id
 end

@@ -37,13 +37,6 @@ class PaymentsController < ApplicationController
     end
   end
 
-  def destroy
-    @food = payment.find(params[:id])
-    authorize! :destroy, @payment
-    @payment.destroy
-    redirect_to entities_path, notice: 'payment successfully deleted.'
-  end
-
   private
 
   def payment_params

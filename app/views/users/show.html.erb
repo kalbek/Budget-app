@@ -5,26 +5,7 @@
 </head>
 <body>
   <div class="user-container ">
-    <div class="users flex-spaced">
-      <div class="user-photo bordered">
-        <img src="<%= @user.photo %>">
-      </div>
-      <div class="details bordered flex-spaced">
-          <div class="user-name"><%= @user.name %></div>
-          <div class="post-nums">Number of posts: %></div>
-      </div>
-    </div>
-    <div class="bio bordered flex-c">
-      <p>bio</p>
-      <span><%= @user.bio %></span>
-      <span>user id<%= @user.id.class %></span>
-    </div>
-    <div class="post-container mb-1">
-      <div class="flex-centered"></div>
-    <div class="flex-spaced post-choice relative">
-      <%= link_to user_posts_path(@user), class: "btn absolute my-post mt-4" do %><p>See all posts</p><% end %> 
-      <%= link_to new_post_path(@user), class: "btn absolute new-post mt-4" do %><p>New Post</p><% end %>
-    </div>
+    
   </div> 
 </body>
 </html>
