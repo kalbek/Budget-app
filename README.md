@@ -131,6 +131,7 @@ If you like this project give it a star on github.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
+I would like to thank [Gregorie Vella](https://www.behance.net/gregoirevella) for providing [this design guidline](https://www.behance.net/gallery/19759151/Snapscan-iOs-design-and-branding?tracking_source=) in behance.
 I would like to thank Microverse for guiding me on the development of this project.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
