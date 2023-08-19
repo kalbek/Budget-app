@@ -14,29 +14,27 @@
   <body>
   <div class="flex-column-centered expenses ">
     <div class="transaction-list hidden-scroll">
-    
-
-    <% @expenses.each do |expense| %>
-      <%= link_to payments_path(id: expense.id), class: "transaction-name" do %>
-      <div class="transaction-row flex-centered">
-        <div class="flex-spaced">
+      <% @expenses.each do |expense| %>
+        <%= link_to payments_path(id: expense.id), class: "transaction-name" do %>
+        <div class="transaction-row flex-centered">
           <div class="flex-spaced">
-            <div class="transaction-name"><%= expense.name %></div>
-            <div class="transaction-amount"><%= expense.icon %></div>
+            <div class="flex-spaced">
+            <p><%= image_tag("#{expense.icon.upcase}.png", alt: "Back") %></p>
+              <div class="transaction-name"><%= expense.name %></div>
+            </div>
+          </div>
+          <div class="transaction-created-at">
+            <% sum = 0 %>
+            <% count = 0 %>
+            <% @payments.select { |payment| payment.transaction_id == expense.id }.each do |payment| %>
+                <% sum += payment.amount %>
+                <% count += 1 %>
+            <% end %>
+            <%= count %> Items,
+            Total $<%= sum %>
           </div>
         </div>
-        <div class="transaction-created-at">
-          <% sum = 0 %>
-          <% count = 0 %>
-           <% @payments.select { |payment| payment.transaction_id == expense.id }.each do |payment| %>
-              <% sum += payment.amount %>
-              <% count += 1 %>
-          <% end %>
-          <%= count %> Items,
-           Total $<%= sum %>
-        </div>
-      </div>
-    <% end %>
+      <% end %>
     <% end %>
   </div>
   <div class="box">

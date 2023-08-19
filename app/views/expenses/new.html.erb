@@ -12,55 +12,43 @@
   </head>
 
   <body>
-  <%= form_with(model: @expense, url: expenses_path) do |form| %>
-    <div class="flex-centered bg-primary ctr-primary  flex-column-centered">
-      <div class="flex-column rad-10 w-30">
-        <div class="form-field flex-column-centered mt-m10">
-     
-
-
-
-          <%= form.fields_for :expense do |expense_form| %>
-            <%= expense_form.text_field :name, class: "add-food-filds", placeholder: "Enter expense name" %>
-            <%= expense_form.select :icon, ExpensesController::ICONS, prompt: "Choose an Icon" %>
-          <% end %>
-
-
-          <div class="flex-spaced">
-            <div class="fit ">
-              <p><%= image_tag("charity.png", alt: "Back") %></p>
-              Charity
+    <%= form_with(model: @expense, url: expenses_path) do |form| %>
+      <div class="flex-centered bg-primary ctr-primary  flex-column-centered">
+        <div class="flex-column rad-10 w-30">
+          <div class="form-field flex-column-centered mt-m10 select">
+            <%= form.fields_for :expense do |expense_form| %>
+              <%= expense_form.text_field :name, class: "add-food-filds #{'field-with-error' if @name_error.present?}", placeholder: "Enter expense name" %>
+              <% if @name_error.present? %>
+                <p class="error-message"><%= @name_error %></p>
+              <% end %>
+            
+              <%= expense_form.select :icon, ExpensesController::ICONS, prompt: "Choose an Icon", class: "select-field #{'field-with-error' if @icon_error.present?}", id: "select-field" %>
+              <% if @icon_error.present? %>
+                <p class="error-message"><%= @icon_error %></p>
+              <% end %>
+            <% end %>
+            <div class="flex-spaced">
+              <div class="fit ">
+                <p><%= image_tag("CHARITY.png", alt: "Back") %></p>
+                Charity
+              </div>
+              <div class="fit ">
+                <p><%= image_tag("ENTERTAINMENT.png", alt: "Back") %></p>
+                Entertainment
+              </div>
+              <div class="fit ">
+                <p><%= image_tag("GROCERY.png", alt: "Back") %></p>
+                Grocery
+              </div>
+          
             </div>
-            <div class="fit ">
-              <p><%= image_tag("movie.png", alt: "Back") %></p>
-              Entertainment
+        
+            <div class="box">
+              <button type="submit" class="transparent inner-border no-decoration new-payment-btn pointer">Add Expense</button>
             </div>
-            <div class="fit ">
-              <p><%= image_tag("grocery.png", alt: "Back") %></p>
-              Grocery
-            </div>
-            <div class="fit ">
-              <p><%= image_tag("muscle.png", alt: "Back") %></p>
-              Fitness
-            </div>
-            <div class="fit ">
-              <p><%= image_tag("recreation.png", alt: "Back") %></p>
-              Recreational
-            </div>
-            <div class="fit ">
-              <p><%= image_tag("travel.png", alt: "Back") %></p>
-              Travel
-            </div>
-          </div>
-
-          <div class="box">
-            <button type="submit" class="transparent inner-border no-decoration new-payment-btn pointer">Add Expense</button>
           </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
 </body>
-
-
 </html>

@@ -22,7 +22,7 @@ class PaymentsController < ApplicationController
   def create
     @expense = Expense.find(params[:expense_id])
     @payment = Payment.new(payment_params)
-    @payment.transaction_id = @expense.id # Set the transaction_id to the expense id
+    @payment.transaction_id = @expense.id
     @payment.created_at = Time.now
     @payment.updated_at = Time.now
     @payment.author_id = current_user.id
