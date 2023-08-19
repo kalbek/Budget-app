@@ -1,5 +1,5 @@
-class Expense < ApplicationRecord
-  belongs_to :user
+  class Expense < ApplicationRecord
+    belongs_to :user
 
-  validates :name, presence: true
-end
+    validates :name, presence: true
+  end
