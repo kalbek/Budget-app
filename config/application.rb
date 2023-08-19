@@ -12,6 +12,7 @@ module BlogApp
     config.load_defaults 7.0
 
     config.paths['config/routes.rb'].concat(Dir[Rails.root.join('spec', 'routes')])
+    config.assets.precompile += %w( *.png *.jpg *.jpeg *.gif )
 
 
     # Configuration for the application, engines, and railties goes here.
