@@ -19,9 +19,27 @@
         <div class="transaction-row flex-centered">
           <div class="flex-spaced">
             <div class="flex-spaced">
-            <p><%= image_tag("#{expense.icon.upcase}.png", alt: "Back") %></p>
+            <% if (expense.icon == 'TRAVEL') %>
+                <p><img src="/assets/TRAVEL.png" alt="Travel Image"></p>
+                <div class="transaction-name"><%= expense.name %></div>
+            <% elsif (expense.icon == 'RECREATIONAL') %>
+                <p><img src="/assets/RECREATIONAL.png" alt="Travel Image"></p>
               <div class="transaction-name"><%= expense.name %></div>
-            </div>
+            <% elsif (expense.icon == 'CHARITY') %>
+                <p><img src="/assets/CHARITY.png" alt="Travel Image"></p>
+              <div class="transaction-name"><%= expense.name %></div>
+            <% elsif (expense.icon == 'FITNESS') %>
+                <p><img src="/assets/FITNESS.png" alt="Travel Image"></p>
+              <div class="transaction-name"><%= expense.name %></div>
+            <% elsif (expense.icon == 'GROCERY') %>
+                <p><img src="/assets/GROCERY.png" alt="Travel Image"></p>
+              <div class="transaction-name"><%= expense.name %></div>
+            <% elsif (expense.icon == 'ENTERTAINMENT') %>
+                <p><img src="/assets/ENTERTAINMENT.png" alt="Travel Image"></p>
+              <div class="transaction-name"><%= expense.name %></div>
+            <% else %>
+           <% end %>
+          </div>
           </div>
           <div class="transaction-created-at">
             <% sum = 0 %>
