@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe ExpensesController, type: :controller do
   let(:user) { create(:user) }
-  let(:expense) { create(:expense, user: user) } 
+  let(:expense) { create(:expense, user:) }
 
   before do
     sign_in(user)

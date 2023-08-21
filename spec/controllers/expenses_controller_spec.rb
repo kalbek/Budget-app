@@ -27,8 +27,6 @@ RSpec.describe ExpensesController, type: :controller do
       expect do
         post :create, params: { expense: invalid_params }
       end.not_to change(Expense, :count)
-    end    
+    end
   end
-
-   
 end
