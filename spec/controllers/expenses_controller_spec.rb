@@ -19,4 +19,16 @@ RSpec.describe ExpensesController, type: :controller do
       end.to change(Expense, :count).by(0)
     end
   end
+
+  context 'with invalid params' do
+    let(:invalid_params) { { name: '', icon: '' } }
+
+    it 'does not create a new expense' do
+      expect do
+        post :create, params: { expense: invalid_params }
+      end.not_to change(Expense, :count)
+    end    
+  end
+
+   
 end
