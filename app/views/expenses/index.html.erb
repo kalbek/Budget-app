@@ -15,7 +15,7 @@
   <div class="flex-column-centered expenses ">
     <div class="transaction-list hidden-scroll">
       <% @expenses.each do |expense| %>
-        <%= link_to payments_path(id: expense.id), class: "transaction-name" do %>
+        <%= link_to payments_path(id: expense.id), class: "transaction-name some-class" do %>
         <div class="transaction-row flex-centered">
           <div class="flex-spaced">
             <div class="flex-spaced">
