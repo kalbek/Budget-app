@@ -1,20 +1,20 @@
-const application = {
-  initialize() {
-    // Your DOMContentLoaded logic here
-    var checkboxes = document.querySelectorAll(".public-checkbox");
-    var form = document.querySelector(".recipe-form");
-    for (var i = 0; i < checkboxes.length; i++) {
-      checkboxes[i].addEventListener("change", function() {
-        form.submit();
-      });
-    }
-  }
-};
+// Import and register all your controllers from the importmap under controllers/*
 
-document.addEventListener("DOMContentLoaded", function() {
-  application.initialize();
-});
+import { application } from "controllers/application"
 
-// Eager load controllers as they appear in the DOM (remember not to preload controllers in import map!)
-import { eagerLoadControllersFrom } from "@hotwired/stimulus-loading";
-eagerLoadControllersFrom("controllers", application);
+// Eager load all controllers defined in the import map under controllers/**/*_controller
+import { eagerLoadControllersFrom } from "@hotwired/stimulus-loading"
+eagerLoadControllersFrom("controllers", application)
+
+import { Application } from "@hotwired/stimulus"
+
+const application = Application.start()
+
+// Lazy load controllers as they appear in the DOM (remember not to preload controllers in import map!)
+// import { lazyLoadControllersFrom } from "@hotwired/stimulus-loading"
+// lazyLoadControllersFrom("controllers", application)
+
+application.debug = false
+window.Stimulus   = application
+
+export { application }
