@@ -1,22 +1,24 @@
-// Import and register all your controllers from the importmap under controllers/*
+// app/javascript/controllers/application.js
 
-import { application } from "controllers/application"
+import { application } from "controllers/application";
+import { eagerLoadControllersFrom } from "@hotwired/stimulus-loading";
+
+export const application = {
+  // Your other Stimulus controller definitions here
+
+  initialize() {
+    document.addEventListener("DOMContentLoaded", function() {
+      // Your DOMContentLoaded logic here
+      var checkboxes = document.querySelectorAll(".public-checkbox");
+      var form = document.querySelector(".recipe-form");
+      for (var i = 0; i < checkboxes.length; i++) {
+        checkboxes[i].addEventListener("change", function() {
+          form.submit();
+        });
+      }
+    });
+  }
+};
 
 // Eager load all controllers defined in the import map under controllers/**/*_controller
-import { eagerLoadControllersFrom } from "@hotwired/stimulus-loading"
-eagerLoadControllersFrom("controllers", application)
-
-// Lazy load controllers as they appear in the DOM (remember not to preload controllers in import map!)
-// import { lazyLoadControllersFrom } from "@hotwired/stimulus-loading"
-// lazyLoadControllersFrom("controllers", application)
-
-document.addEventListener("DOMContentLoaded", function() {
-    var checkboxes = document.querySelectorAll(".public-checkbox");
-    var form = document.querySelector(".recipe-form");
-    for (var i = 0; i < checkboxes.length; i++) {
-      checkboxes[i].addEventListener("change", function() {
-        form.submit();
-      });
-    }
-  });
-  
+eagerLoadControllersFrom("controllers", application);
