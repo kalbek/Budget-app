@@ -19,7 +19,7 @@
         <div class="transaction-row flex-centered">
           <div class="flex-spaced">
             <div class="flex-spaced">
-            <p><%= image_tag("#{expense.icon}.png", alt: "Back") %></p>
+            <p><%= image_tag("#{expense.icon.downcase}.png", alt: "Back") %></p>
               <div class="transaction-name"><%= expense.name %></div>
             </div>
           </div>
