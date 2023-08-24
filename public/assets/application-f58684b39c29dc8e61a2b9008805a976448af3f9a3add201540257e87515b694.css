@@ -316,6 +316,7 @@
   background-color: lightslategrey;
   cursor: pointer;
 }
+
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Montserrat:wght@500&display=swap');
 
@@ -1175,6 +1176,7 @@ code {
 .add-items-button:hover {
   background-color: #0056b3;
 }
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -1187,7 +1189,6 @@ code {
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
-
 
  */
 
