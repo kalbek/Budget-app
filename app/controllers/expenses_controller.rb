@@ -1,6 +1,8 @@
 class ExpensesController < ApplicationController
   before_action :authenticate_user!
+  skip_before_action :verify_authenticity_token
   ICONS = %w[CHARITY ENTERTAINMENT GROCERY FITNESS RECREATIONAL TRAVEL].freeze
+  
   def index
     @last_expense = Expense.last
     @user = current_user
