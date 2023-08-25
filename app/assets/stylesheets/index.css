@@ -158,19 +158,9 @@ code {
   padding-left: 0.1rem;
 }
 
-/* starting desktop */
-.form-field {
-  min-width: 50vw;
-  position: relative;
-}
-
-.form-field input {
-  min-width: 40vw;
-  height: 2.5rem;
-  border: 1px solid transparent;
+.bottom-bordered input {
+  height: 3rem;
   border-bottom: 1px solid gray;
-  font-size: 100%;
-  padding-left: 0.1rem;
 }
 
 .header-label {
@@ -247,14 +237,6 @@ code {
 
 .btn:hover {
   background-color: #0056b3; /* Darker blue on hover */
-}
-
-/* budget splash end */
-
-/* ending desktop */
-.form-field input:focus {
-  outline: solid 1px transparent;
-  border-bottom: solid 3px gray;
 }
 
 .sample-intro {
@@ -449,11 +431,57 @@ code {
   top: 4.5%;
   z-index: 2000;
   left: 15%;
+  cursor: pointer;
+}
+
+.fk {
+  position: absolute;
+  top: 4.5%;
+  z-index: 2000;
+  right: 1%;
+}
+
+.gobtn {
+  width: fit-content;
+  width: 5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.gobtn * {
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: #fff;
+  font-size: 20px;
+}
+
+.form-field input {
+  min-width: 100vw;
+  height: 3.3rem;
+  border: 1px solid transparent;
+  border-bottom: 1px solid gray;
+  font-size: 100%;
+  padding-left: 0.1rem;
+  margin-bottom: -1.5rem;
+}
+
+.form-field input:focus {
+  outline: solid 1px transparent;
+  border-bottom: solid 3px gray;
 }
 
 @media (min-width: 768px) {
   .main {
     height: auto;
+  }
+
+  .form-field input {
+    min-width: 40vw;
+    height: 3.3rem;
+    border-bottom: 1px solid gray;
+    font-size: 100%;
+    padding-left: 0.1rem;
+    margin-bottom: -1.5rem;
   }
 
   .main-intro {
@@ -665,6 +693,10 @@ code {
   border-color: #0069da;
 }
 
+.fk *:hover {
+  cursor: pointer;
+}
+
 .total {
   position: fixed;
   top: 10%;
@@ -677,10 +709,8 @@ code {
 }
 
 .payment-details .detail {
-  width: 80vw; /* Set the width to 100% of its parent's width */
+  width: 80vw;
   height: 10vh;
-
-  /* padding: 10% 2%; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;

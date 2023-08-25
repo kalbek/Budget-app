@@ -37,9 +37,13 @@
       <% else %>
         <!-- Default content if none of the conditions match -->
       <% end %>
+      <% if !current_page?(new_user_registration_path) &&!current_page?(user_session_path) %>
       <div>
         <%= image_tag "search.png", alt: "Search icon" %>
       </div>
+      <% else %>
+      <div> </div>
+      <% end %>
     </div>
   </div>
 
