@@ -470,9 +470,94 @@ code {
   border-bottom: solid 3px gray;
 }
 
+.transaction-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  background-color: #f0f2f1;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  min-width: 90vw;
+  margin-bottom: 10px;
+}
+
+.light-gray {
+  color: #888;
+}
+
+.ml-m1 {
+  margin-left: -2rem;
+}
+
+.lined {
+  border: 1px solid black;
+}
+
+.text-centered {
+  width: auto;
+  text-align: left;
+}
+
+.exp-name {
+  font-size: 24px;
+}
+
+.travel-name-total {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.item-count {
+  right: 1%;
+  text-align: center;
+  margin-top: -1rem;
+  position: absolute;
+  top: 50%;
+  color: black;
+}
+
+.bgr {
+  background-color: red;
+  justify-content: start;
+}
+
+.total-price {
+  margin-top: 10%;
+}
+
+.total-price p {
+  font-size: 13px;
+}
+
 @media (min-width: 768px) {
   .main {
     height: auto;
+  }
+
+  .transaction-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    background-color: #f0f2f1;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    min-width: 45vw;
+    margin-bottom: 10px;
+  }
+
+  .light-gray {
+    color: #888;
+  }
+
+  .text-centered {
+    width: auto;
+    text-align: center;
+    display: flex;
+    justify-content: start;
+    overflow: hidden;
   }
 
   .form-field input {
@@ -823,18 +908,6 @@ code {
   flex-direction: column;
   align-items: center;
   padding: 20px;
-}
-
-.transaction-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 2rem;
-  background-color: #f0f2f1;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  min-width: 35vw;
-  margin-bottom: 10px;
 }
 
 .fit {
