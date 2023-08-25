@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Expense Transactions app</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+
+  <%= link_to expenses_path, class: 'bk' do %>
+    <%= image_tag("back-arrow.png", alt: "Back") %>
+  <% end %>
+  <div class="flex-column-centered expenses">
+    <div class="transaction-list hidden-scroll">
+    <% sum = 0 %>
+            <% @payments.each do |payment| %>
+              <% if (payment.transaction_id == @expense.id) %>
+              <% sum += payment.amount %>
+              <div class="transaction-row payment-row flex-centered relative">
+              <div class="flex-column-start">
+                <div class="flex">
+                  <p><%= image_tag("#{@expense.icon.downcase}.png", alt: "Back") %></p>
+                      <p class="text-centered payment-name darkslategray">
+                        <%= payment.name %>
+                      </p>
+                      </div>
+
+                      <div class="flex-column-start light-gray " >
+                      <div class="travel-name-total">
+                        </br>
+                        <div class="total-price">
+                          
+                        </div>
+                        </div>
+                      </div>
+                      <div class="hr"></div>
+                        <p class="darkslategray">Creation date</p>
+                      <div class="transaction-created-at date-aligned flex">
+                      <p><%= payment.created_at.strftime('%e %B %Y ') %></p>
+                      <p><%= payment.created_at.strftime('at %l:%M %p') %></p>
+                      </div>
+                      
+                      </br>
+                      <div class="hr"></div>
+                      <div class=" flex payment-price darkslategray">
+                        <p> TOTAL PAYMENT </p>
+                        <p class="absolute r-0 payment-amount-det"> $<%= payment.amount %> 
+                      </div>
+                  </div>
+                  </div>
+              <% end %>
+            <% end %>
+            <div class="total absolute">
+              Total $<%= sum %>
+            </div>
+
+          </div>
+          <div class="box w-100 fit-content">
+          <%= link_to 'Add Payment', new_payment_path(expense_id: @expense.id), class: 'inner-border no-decoration new-payment-btn' %>
+          </div>
+  </div>
+
+
+  </body>
+
+</html>

@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Expense Transactions app</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+  <%= link_to expenses_path, class: 'bk' do %>
+    <%= image_tag("back-arrow.png", alt: "Back") %>
+  <% end %>
+  
+    <%= form_with(model: @expense, url: expenses_path) do |form| %>
+      <div class="flex-centered bg-primary ctr-primary  flex-column-centered">
+        <div class="flex-column rad-10 w-30">
+          <div class="form-field flex-column-centered mt-m10 select">
+            <%= form.fields_for :expense do |expense_form| %>
+              <%= expense_form.text_field :name, class: "add-food-filds #{'field-with-error' if @name_error.present?}", placeholder: "Enter expense name" %>
+              <% if @name_error.present? %>
+                <p class="error-message"><%= @name_error %></p>
+              <% end %>
+              
+              <%= expense_form.select :icon, ExpensesController::ICONS, prompt: "Choose an icon for your expense category.", class: "select-field #{'field-with-error' if @icon_error.present?}", id: "select-field" %>
+              <% if @icon_error.present? %>
+                <p class="error-message"><%= @icon_error %></p>
+              <% end %>
+            <% end %>
+            <div class="flex-spaced">
+              <div class="fit">
+                <p><%= image_tag('grocery.png', alt: 'Grocery Image') %></p>
+                Grocery
+              </div>
+              <div class="fit">
+                <p><%= image_tag('charity.png', alt: 'Charity Image') %></p>
+                Charity
+              </div>
+              <div class="fit">
+                <p><%= image_tag('travel.png', alt: 'travel Image') %></p>
+                Travel
+              </div>
+            </div>
+            <div class="box">
+              <button type="submit" class="transparent inner-border no-decoration new-payment-btn pointer">Add Expense</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+</body>
+</html>

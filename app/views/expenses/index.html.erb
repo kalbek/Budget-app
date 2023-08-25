@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Expense Transactions app</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+  <div class="flex-column-centered expenses">
+    <div class="transaction-list hidden-scroll">
+      <% @expenses.each do |expense| %>
+        <% sum = 0 %>
+        <% count = 0 %>
+        <%= link_to payments_path(id: expense.id), class: "transaction-name" do %>
+        <div class="transaction-row flex-centered relative">
+          <div class="flex-spaced">
+            <div class="flex">
+              <p><%= image_tag("#{expense.icon.downcase}.png", alt: "Back") %></p>
+              <div class="flex-column-start light-gray " >
+                <div class="travel-name-total">
+                  <div class="text-centered   "><%= expense.name %></div>
+                  <div class="total-price">
+                    <p><%= count %> Items</p>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="transaction-created-at">
+              <% @payments.select { |payment| payment.transaction_id == expense.id }.each do |payment| %>
+                  <% sum += payment.amount %>
+                  <% count += 1 %>
+              <% end %>
+                <div class="item-count">
+                  <p>Total $<%= sum %></p>
+                </div>
+            </div>
+          </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="box w-100 fit-content">
+      <%= link_to 'Add Expense Category', new_expense_path, class: 'inner-border no-decoration new-payment-btn ' %>
+  </div>
+  </div>
+  </body>
+
+</html>
