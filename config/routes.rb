@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   # The root path will be spash screen
   root to: 'splash#index'
 
+  get 'users', to: 'users#index', as: :users
+
   # expenses route
   get 'expenses', to: 'expenses#index', as: :expenses
   
