@@ -531,9 +531,52 @@ code {
   font-size: 13px;
 }
 
+.payment-row {
+  margin-top: 20%;
+}
+
+.date-aligned {
+  display: flex;
+  margin-top: 5px;
+  text-align: start;
+}
+
+.hr {
+  height: 1px;
+  width: 140%;
+  margin-bottom: 15px;
+  background-color: gainsboro;
+}
+
+.payment-name {
+  font-size: 25px;
+  margin-top: 1rem;
+}
+
+.payment-amount-det {
+  font-size: 18px;
+  color: darkslategray;
+  right: 2%;
+}
+
+.darkslategray {
+  color: darkslategray;
+}
+
 @media (min-width: 768px) {
   .main {
     height: auto;
+  }
+
+  .hr {
+    height: 1px;
+    width: 45vw;
+    margin-bottom: 15px;
+    background-color: gainsboro;
+  }
+
+  .payment-row {
+    margin-top: 2%;
   }
 
   .transaction-row {
