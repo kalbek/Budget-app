@@ -563,6 +563,10 @@ code {
   color: darkslategray;
 }
 
+.mt-8 {
+  margin-top: 8rem;
+}
+
 @media (min-width: 768px) {
   .main {
     height: auto;
