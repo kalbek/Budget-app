@@ -5,9 +5,9 @@
 <div class=" flex-column rad-10 w-30">
 
 <%= form_for(resource, as: resource_name, url: user_session_path) do |f| %>
-  <div class="bk">
-  <%= image_tag("back-arrow.png", alt: "Back") %>
-</div>
+  <%= link_to root_path, class: 'bk' do %>
+    <%= image_tag("back-arrow.png", alt: "Back") %>
+  <% end %>
   <%= render "devise/shared/error_messages", resource: resource %>
   
   <div class="form-field flex-column-centered mt-m10">
